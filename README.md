@@ -115,6 +115,41 @@ pod setup 成功后会生成~/Library/Caches/CocoaPods/search_index.json文件
 
 - 注意，运行时如果发生报错，在桥接文件中，写入 `#import <UIKit/UIKit.h>`
 
+## iOS 调用说明
+
+> 接口名称：AlipaySDK
+> 
+> 接口描述：提供支付功能。
+
+Alipay 接口主要为商户提供订单支付功能。接口所提供的方法，如下表所示：
+
+
+| 方法名称 | 方法描述 |
+| :-- | :-- |
+| +(Alipay *)defaultService; | 获取服务实例。 |
+| -(void)payOrder:(NSString *)orderStr fromScheme:(NSString *)schemeStr callback:(CompletionBlock)completionBlock; | 支付并通过回调返回结果。 |
+| -(void)processOrderWithPaymentResult:(NSURL*)resultUrl standbyCallback:(CompletionBlock)completionBlock; | 处理支付宝客户端返回的 url（在 app 被杀模式下，通过这个方法获取支付结果）。 |
+
+快捷订单支付 iOS
+
+> 方法名称：pay 方法
+
+> 方法原型：(void)payOrder:(NSString )orderStr fromScheme:(NSString )schemeStr callback:(CompletionBlock)completionBlock;
+
+> 方法功能：提供给商户快捷订单支付功能。
+
+处理客户端返回 url
+
+> 方法名称：处理客户端方法
+
+> 方法原型：-(void)processOrderWithPaymentResult:(NSURL*)resultUrl standbyCallback:(CompletionBlock)completionBlock;
+
+> 方法功能：设备已安装支付宝客户端情况下，处理支付宝客户端返回的 url。
+
+回调接口
+
+在支付过程结束后，会通过 callbackBlock 同步返回支付结果（callbackBlock 是调用支付同步的回调）。支付结果中参数的提取，必须通过 CompletionBlock 获取，禁止开发者私自解析支付结果返回的 URL。
+
 ## 参考文档
 
 App 支付 iOS 集成流程详见：[开发文档/App支付/iOS集成流程](https://docs.open.alipay.com/204/105295/)
