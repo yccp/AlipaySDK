@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-  s.name                  = 'AlipaySDK'
+  s.name                  = 'AlipaySDK_MI'
   s.version               = '15.5.0'
   s.summary               = 'Alipay payment SDK, support manual integration and Cocoapods integration mode, continuous update.'
   s.homepage              = 'https://github.com/caosuyang/AlipaySDK'
