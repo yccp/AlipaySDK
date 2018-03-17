@@ -138,6 +138,14 @@ Alipay 接口主要为商户提供订单支付功能。接口所提供的方法�
 
 > 方法功能：提供给商户快捷订单支付功能。
 
+
+| 参数名称 | 参数描述 |
+| :-- | :-- |
+| NSString* scheme | 商户程序注册的 URL protocol，供支付完成后回调商户程序使用 |
+| (CompletionBlock)completionBlock | 快捷支付开发包回调函数，返回免登、支付结果。本地未安装支付宝客户端，或未成功调用支付宝客户端进行支付的情况下（走 H5 收银台），会通过该 completionBlock 返回支付结果。 |
+| NSString* orderString | app 支付请求参数字符串，主要包含商户的订单信息，key=value 形式，以&连接。 |
+
+
 处理客户端返回 url
 
 > 方法名称：处理客户端方法
@@ -146,6 +154,13 @@ Alipay 接口主要为商户提供订单支付功能。接口所提供的方法�
 
 > 方法功能：设备已安装支付宝客户端情况下，处理支付宝客户端返回的 url。
 
+
+| 参数名称 | 参数描述 |
+| :-- | :-- |
+| NSURL *resultUrl | 支付宝客户端回传的 url |
+| CompletionBlock completionBlock | 本地安装了支付宝客户端，且成功调用支付宝客户端进行支付的情况下，会通过该 completionBlock 返回支付结果 |
+
+
 回调接口
 
 在支付过程结束后，会通过 callbackBlock 同步返回支付结果（callbackBlock 是调用支付同步的回调）。支付结果中参数的提取，必须通过 CompletionBlock 获取，禁止开发者私自解析支付结果返回的 URL。
@@ -153,4 +168,8 @@ Alipay 接口主要为商户提供订单支付功能。接口所提供的方法�
 ## 参考文档
 
 App 支付 iOS 集成流程详见：[开发文档/App支付/iOS集成流程](https://docs.open.alipay.com/204/105295/)
+
+## 许可 License
+
+支付宝支付 SDK 是在 [MIT 的许可](https://github.com/caosuyang/AlipaySDK/blob/master/LICENSE)下发布的。
 
