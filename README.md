@@ -33,7 +33,7 @@ touch Podfile
 ```
 platform :ios, '8.0' #手机的系统
 target 'YourProjectTarget' do #工程名字
-  pod “AlipaySDK” #支付宝支付SDK
+  pod “AlipaySDK_MI” #支付宝支付SDK
 end   
 ```
 
@@ -277,7 +277,7 @@ ld: 34 duplicate symbols for architecture arm64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
 
-使用不带有UTDID使用这个链接下面的 SDK：[iOS&Android版资源（适用于集成了百川sdk，出现UTDID冲突）](https://doc.open.alipay.com/doc2/detail.htm?treeId=54&articleId=104509&docType=1)。
+AlipaySDK_No_UTDID，支付宝支付 SDK ，适用于集成了百川 SDK，出现 UTDID 冲突：[caosuyang/AlipaySDK_No_UTDID](https://github.com/caosuyang/AlipaySDK_No_UTDID)。
 
 ## 参考文档
 
