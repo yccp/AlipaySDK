@@ -1,6 +1,6 @@
 # AlipaySDK
 
-支付宝支付 SDK ，支持手动集成以及 Cocoapods 集成方式，持续更新。
+支付宝支付 SDK ，SDK 已适配 iPhoneX，支持 IPv6_only 网络和 ATS 安全标准，支持手动集成以及 Cocoapods 集成方式，持续更新。
 
 ## 安装 CocoaPods
 
@@ -164,6 +164,120 @@ Alipay 接口主要为商户提供订单支付功能。接口所提供的方法�
 回调接口
 
 在支付过程结束后，会通过 callbackBlock 同步返回支付结果（callbackBlock 是调用支付同步的回调）。支付结果中参数的提取，必须通过 CompletionBlock 获取，禁止开发者私自解析支付结果返回的 URL。
+
+## 出现 UTDID 冲突
+
+
+之前已集成阿里云旺，现在集成支付宝支付，导入 AlipaySDK.framework 就发生链接错误：
+
+```
+duplicate symbol _OBJC_CLASS_$_UTDIDAES in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDAES.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDAES in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDAES.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDBaseUtils in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDBaseUtils.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDBaseUtils in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDBaseUtils.o) 
+duplicate symbol _OBJC_CLASS_$_AidRequester in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidRequester.o) 
+duplicate symbol _OBJC_METACLASS_$_AidRequester in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidRequester.o) 
+duplicate symbol _OBJC_CLASS_$_AidManager in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidManager.o) 
+duplicate symbol _OBJC_METACLASS_$_AidManager in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidManager.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDIntUtils in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDIntUtils.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDIntUtils in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDIntUtils.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDStringUtils in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDStringUtils.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDStringUtils in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDStringUtils.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDTypeConvert in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDTypeConvert.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDTypeConvert in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDTypeConvert.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDMain in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDMain.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDMain in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDMain.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDOpenUDID in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDOpenUDID.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDOpenUDID in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDOpenUDID.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDHelper in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDHelper.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDHelper in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDHelper.o) 
+duplicate symbol _OBJC_CLASS_$_AidStorage in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidStorage.o) 
+duplicate symbol _OBJC_METACLASS_$_AidStorage in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidStorage.o) 
+duplicate symbol _OBJC_CLASS_$_UTDevice in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDevice.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDevice in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDevice.o) 
+duplicate symbol _OBJC_IVAR_$_UTDIDKeychainItemWrapper.genericPasswordQuery in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDKeychainItemWrapper in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDKeychainItemWrapper in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o) 
+duplicate symbol _OBJC_IVAR_$_UTDIDKeychainItemWrapper.keychainItemData in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDPersistentConf in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDPersistentConf.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDPersistentConf in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDPersistentConf.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDPersistentFile in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDPersistentFile.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDPersistentFile in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDPersistentFile.o) 
+duplicate symbol _OBJC_CLASS_$_UTDIDGTMBase64 in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDGTMBase64.o) 
+duplicate symbol _OBJC_METACLASS_$_UTDIDGTMBase64 in: 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
+   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDGTMBase64.o) 
+ld: 34 duplicate symbols for architecture arm64 
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+
+使用不带有UTDID使用这个链接下面的 SDK：[iOS&Android版资源（适用于集成了百川sdk，出现UTDID冲突）](https://doc.open.alipay.com/doc2/detail.htm?treeId=54&articleId=104509&docType=1)。
 
 ## 参考文档
 
