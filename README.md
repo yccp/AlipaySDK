@@ -167,113 +167,119 @@ Alipay 接口主要为商户提供订单支付功能。接口所提供的方法�
 
 ## 出现 UTDID 冲突
 
-
-之前已集成阿里云旺，现在集成支付宝支付，导入 AlipaySDK.framework 就发生链接错误：
+已集成阿里云旺，或者之前已集成友盟应用统计 UMCSecurityPlugins 安全组件，现在集成支付宝支付，导入 AlipaySDK.framework 就发生链接错误，如下所示：
 
 ```
-duplicate symbol _OBJC_CLASS_$_UTDIDAES in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDAES.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDAES in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDAES.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDBaseUtils in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDBaseUtils.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDBaseUtils in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDBaseUtils.o) 
-duplicate symbol _OBJC_CLASS_$_AidRequester in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidRequester.o) 
-duplicate symbol _OBJC_METACLASS_$_AidRequester in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidRequester.o) 
-duplicate symbol _OBJC_CLASS_$_AidManager in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidManager.o) 
-duplicate symbol _OBJC_METACLASS_$_AidManager in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidManager.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDIntUtils in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDIntUtils.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDIntUtils in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDIntUtils.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDStringUtils in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDStringUtils.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDStringUtils in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDStringUtils.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDTypeConvert in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDTypeConvert.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDTypeConvert in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDTypeConvert.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDMain in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDMain.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDMain in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDMain.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDOpenUDID in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDOpenUDID.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDOpenUDID in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDOpenUDID.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDHelper in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDHelper.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDHelper in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDHelper.o) 
-duplicate symbol _OBJC_CLASS_$_AidStorage in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidStorage.o) 
-duplicate symbol _OBJC_METACLASS_$_AidStorage in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(AidStorage.o) 
-duplicate symbol _OBJC_CLASS_$_UTDevice in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDevice.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDevice in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDevice.o) 
-duplicate symbol _OBJC_IVAR_$_UTDIDKeychainItemWrapper.genericPasswordQuery in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDKeychainItemWrapper in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDKeychainItemWrapper in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o) 
-duplicate symbol _OBJC_IVAR_$_UTDIDKeychainItemWrapper.keychainItemData in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDPersistentConf in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDPersistentConf.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDPersistentConf in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDPersistentConf.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDPersistentFile in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDPersistentFile.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDPersistentFile in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDPersistentFile.o) 
-duplicate symbol _OBJC_CLASS_$_UTDIDGTMBase64 in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDGTMBase64.o) 
-duplicate symbol _OBJC_METACLASS_$_UTDIDGTMBase64 in: 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/Alipay/AlipaySDK.framework/AlipaySDK 
-   /Users/wangmang/Desktop/xmPatient/xzgj/xzgj/Classes/Main/Libs/YWOpenIM/WXFrameworks/UTDID.framework/UTDID(UTDIDGTMBase64.o) 
-ld: 34 duplicate symbols for architecture arm64 
+Showing Recent Issues
+Ld /Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/ZZYBotClient.app/ZZYBotClient normal arm64
+    cd /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient
+    export IPHONEOS_DEPLOYMENT_TARGET=10.0
+    export PATH="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.2.sdk -L/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos -L/Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/BaiduMapKit/BaiduMapKit/thirdlibs -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/AFNetworking -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/Charts -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/FMDB -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/IQKeyboardManager -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/LBXScan -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/LCActionSheet -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/MJExtension -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/MJRefresh -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/MKDropdownMenu -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/Masonry -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/PGDatePicker -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/PGPickerView -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/RTRootNavigationController -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/Reachability -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/SAMKeychain -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/SDWebImage -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/SKTagView -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/SVProgressHUD -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/TZImagePickerController -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/XHWebImageAutoSize -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/YYKit -F/Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/pop -F/Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK -F/Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/BaiduMapKit/BaiduMapKit -F/Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCAnalytics -F/Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCCommon -F/Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCErrorCatch -F/Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties -filelist /Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Intermediates.noindex/ZZYBotClient.build/Debug-iphoneos/ZZYBotClient.build/Objects-normal/arm64/ZZYBotClient.LinkFileList -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @loader_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/Frameworks -miphoneos-version-min=10.0 -dead_strip -Xlinker -object_path_lto -Xlinker /Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Intermediates.noindex/ZZYBotClient.build/Debug-iphoneos/ZZYBotClient.build/Objects-normal/arm64/ZZYBotClient_lto.o -Xlinker -export_dynamic -Xlinker -no_deduplicate -fobjc-arc -fobjc-link-runtime -stdlib=libc++ -ObjC -lc++ -lcrypto -lsqlite3 -lsqlite3.0 -lssl -lz -framework AFNetworking -framework AlipaySDK -framework BaiduMapAPI_Base -framework BaiduMapAPI_Cloud -framework BaiduMapAPI_Location -framework BaiduMapAPI_Map -framework BaiduMapAPI_Radar -framework BaiduMapAPI_Search -framework BaiduMapAPI_Utils -framework CFNetwork -framework Charts -framework CoreGraphics -framework CoreLocation -framework CoreMotion -framework CoreTelephony -framework CoreText -framework FMDB -framework Foundation -framework IQKeyboardManager -framework LBXScan -framework LCActionSheet -framework MJExtension -framework MJRefresh -framework MKDropdownMenu -framework Masonry -framework OpenGLES -framework PGDatePicker -framework PGPickerView -framework QuartzCore -framework RTRootNavigationController -framework Reachability -framework SAMKeychain -framework SDWebImage -framework SKTagView -framework SVProgressHUD -framework Security -framework SecurityEnvSDK -framework SystemConfiguration -framework TZImagePickerController -framework UIKit -framework UMAnalytics -framework UMCommon -framework UMErrorCatch -framework UTDID -framework XHWebImageAutoSize -framework YYKit -framework pop -framework CoreTelephony -framework AdSupport -framework Pods_ZZYBotClient -Xlinker -dependency_info -Xlinker /Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Intermediates.noindex/ZZYBotClient.build/Debug-iphoneos/ZZYBotClient.build/Objects-normal/arm64/ZZYBotClient_dependency_info.dat -o /Users/myfolders/Library/Developer/Xcode/DerivedData/ZZYBotClient-alqhouatlrvwfqdxglbrmmnqsdoc/Build/Products/Debug-iphoneos/ZZYBotClient.app/ZZYBotClient
+
+duplicate symbol _OBJC_CLASS_$_UTDIDAES in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDAES.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDAES in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDAES.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDBaseUtils in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDBaseUtils.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDBaseUtils in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDBaseUtils.o)
+duplicate symbol _OBJC_CLASS_$_AidRequester in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(AidRequester.o)
+duplicate symbol _OBJC_METACLASS_$_AidRequester in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(AidRequester.o)
+duplicate symbol _OBJC_CLASS_$_AidManager in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(AidManager.o)
+duplicate symbol _OBJC_METACLASS_$_AidManager in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(AidManager.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDIntUtils in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDIntUtils.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDIntUtils in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDIntUtils.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDStringUtils in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDStringUtils.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDStringUtils in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDStringUtils.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDTypeConvert in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDTypeConvert.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDTypeConvert in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDTypeConvert.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDMain in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDMain.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDMain in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDMain.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDOpenUDID in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDOpenUDID.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDOpenUDID in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDOpenUDID.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDHelper in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDHelper.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDHelper in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDHelper.o)
+duplicate symbol _OBJC_CLASS_$_AidStorage in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(AidStorage.o)
+duplicate symbol _OBJC_METACLASS_$_AidStorage in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(AidStorage.o)
+duplicate symbol _OBJC_CLASS_$_UTDevice in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDevice.o)
+duplicate symbol _OBJC_METACLASS_$_UTDevice in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDevice.o)
+duplicate symbol _OBJC_IVAR_$_UTDIDKeychainItemWrapper.genericPasswordQuery in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDKeychainItemWrapper in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDKeychainItemWrapper in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o)
+duplicate symbol _OBJC_IVAR_$_UTDIDKeychainItemWrapper.keychainItemData in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDKeychainItemWrapper.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDPersistentConf in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDPersistentConf.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDPersistentConf in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDPersistentConf.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDPersistentFile in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDPersistentFile.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDPersistentFile in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDPersistentFile.o)
+duplicate symbol _OBJC_CLASS_$_UTDIDGTMBase64 in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDGTMBase64.o)
+duplicate symbol _OBJC_METACLASS_$_UTDIDGTMBase64 in:
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/AlipaySDK_MI/AlipaySDK/AlipaySDK.framework/AlipaySDK
+    /Users/myfolders/Downloads/Zhiziyun/ZZYBotClient/ZZYBotClient/Pods/UMCSecurityPlugins/thirdparties/UTDID.framework/UTDID(UTDIDGTMBase64.o)
+ld: 34 duplicate symbols for architecture arm64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 ```
 
